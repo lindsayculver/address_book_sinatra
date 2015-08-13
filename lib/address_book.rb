@@ -1,3 +1,5 @@
+require('pry')
+
 class Contact
   @@contacts = []
   define_method(:initialize) do |name, email, address, phone|
@@ -37,5 +39,14 @@ class Contact
 
   define_method(:id) do
     @id
+  end
+  define_singleton_method(:find) do |ident|
+    found_contact = nil
+    @@contacts.each() do |contact|
+      if contact.id().eql?(ident)
+        found_contact = contact
+      end
+    end
+    found_contact
   end
 end

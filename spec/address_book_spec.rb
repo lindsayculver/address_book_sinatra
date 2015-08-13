@@ -55,9 +55,17 @@ describe('Contact') do
 
   describe('#id') do
     it('returns unique id of contact stored in array') do
+      Contact.clear()
       test_contact = Contact.new('Monica', 'monica@email.com', '123 fake st.','3605555555')
       test_contact.save()
-      expect(test_contact.id()).to(eq(5))
+      expect(test_contact.id()).to(eq(1))
+    end
+  end
+  describe('.find') do
+    it('finds the desired contact by id and returns it') do
+      test_contact = Contact.new('Joey', 'joey@email.com', '123 fake st.','3605555555')
+      test_contact.save()
+      expect(Contact.find(test_contact.id())).to(eq(test_contact))
     end
   end
 end
