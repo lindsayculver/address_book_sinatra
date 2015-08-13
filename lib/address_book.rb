@@ -30,4 +30,7 @@ class Contact
   define_method(:address) do
     @address
   end
+  define_method(:phone) do
+    @phone
+  end
 end
