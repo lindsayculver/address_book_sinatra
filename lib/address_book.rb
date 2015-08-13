@@ -5,6 +5,7 @@ class Contact
     @email = email
     @address = address
     @phone = phone
+    @id = @@contacts.length.+(1)
   end
 
   define_singleton_method(:all) do
@@ -32,5 +33,9 @@ class Contact
   end
   define_method(:phone) do
     @phone
+  end
+
+  define_method(:id) do
+    @id
   end
 end

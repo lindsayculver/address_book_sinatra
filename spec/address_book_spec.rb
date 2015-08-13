@@ -52,4 +52,12 @@ describe('Contact') do
       expect(test_contact.phone()).to(eq('3605555555'))
     end
   end
+
+  describe('#id') do
+    it('returns unique id of contact stored in array') do
+      test_contact = Contact.new('Monica', 'monica@email.com', '123 fake st.','3605555555')
+      test_contact.save()
+      expect(test_contact.id()).to(eq(5))
+    end
+  end
 end
