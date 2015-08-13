@@ -22,3 +22,17 @@ end
 get('/contacts/:id') do
   @contacts = Contact.new(params.fetch('id').to_i())
 end
+
+post('/contacts') do
+  handle = params.fetch('email_handle')
+  Contact.new(handle).save()
+  @contacts = Contact.all()
+    erb(:success)
+end
+
+# post('/contacts') do
+#   email = (params.fetch(''))
+#   @contact = Contact.new(email)
+#   @contact.save()
+#   erb(:success)
+# end
