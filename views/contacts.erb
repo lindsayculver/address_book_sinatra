@@ -1,0 +1,13 @@
+<h1>Saved Contacts:</h1>
+
+<ul>
+  <% @contacts.each() do |contact| %>
+  <li><a href='/contacts/<%= contact.id() %>'><%= contact.email_handle() %></a></li>
+  <% end %>
+</ul>
+
+<p>Add a new contact</p>
+
+<form action="/contacts/new" method="post">
+  <button class='submit'>New Contact</button>
+</form>
