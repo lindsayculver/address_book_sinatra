@@ -3,7 +3,9 @@ class Contact
   define_method(:initialize) do |email_handle|
     @email_handle = email_handle
     @id = @@contacts.length().+(1)
-    @details = []
+    @names = []
+    @addresses = []
+    @phones = []
   end
   define_method(:email_handle) do
     @email_handle
@@ -31,5 +33,23 @@ class Contact
       end
     end
     found_contact
+  end
+  define_method(:names) do
+    @names
+  end
+  define_method(:add_name) do |name|
+    @names.push(name)
+  end
+  define_method(:addresses) do
+    @addresses
+  end
+  define_method(:add_address) do |address|
+    @addresses.push(address)
+  end
+  define_method(:phones) do
+    @phones
+  end
+  define_method(:add_phone) do |phone|
+    @phones.push(phone)
   end
 end

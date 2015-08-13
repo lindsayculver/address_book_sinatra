@@ -23,16 +23,20 @@ get('/contacts/:id') do
   @contacts = Contact.new(params.fetch('id').to_i())
 end
 
-post('/contacts') do
-  handle = params.fetch('email_handle')
-  Contact.new(handle).save()
-  @contacts = Contact.all()
-    erb(:success)
+get('/contacts/:id/') do
+  @contact = Contact.new(params.fetch('id').to_i())
+  erb(:success)
 end
 
-# post('/contacts') do
-#   email = (params.fetch(''))
-#   @contact = Contact.new(email)
-#   @contact.save()
-#   erb(:success)
-# end
+post('/contacts') do
+  handle = params.fetch('email_handle')
+  first = params.fetch('first')
+  last = params.fetch('last')
+  home = params.fetch('home')
+  work = params.fetch('work')
+  home_address = params.fetch('home_address')
+  work_address = params.fetch('work_address')
+  Contact.new(handle).save()
+  @contacts = Contact.all()
+  erb(:success)
+end

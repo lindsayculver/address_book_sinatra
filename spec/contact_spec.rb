@@ -43,4 +43,28 @@ describe('Contact') do
       expect(Contact.find(test_contact.id())).to(eq(test_contact))
     end
   end
+  describe('#add_phone') do
+    it('adds a new contact to the contact list') do
+      test_contact = Contact.new('bill@email.com')
+      test_phones = Phone.new('1111111111', '2222222222')
+      test_contact.add_phone(test_phones)
+      expect(test_contact.phones()).to(eq([test_phones]))
+    end
+  end
+  describe('#add_name') do
+    it('adds a new contact to the contact list') do
+      test_contact = Contact.new('bill@email.com')
+      test_names = Name.new('Tom', 'mot')
+      test_contact.add_name(test_names)
+      expect(test_contact.names()).to(eq([test_names]))
+    end
+  end
+  describe('#add_address') do
+    it('adds a new contact to the contact list') do
+      test_contact = Contact.new('bill@email.com')
+      test_addresses = Address.new('123 fake st.','789 fake st.')
+      test_contact.add_address(test_addresses)
+      expect(test_contact.addresses()).to(eq([test_addresses]))
+    end
+  end
 end
