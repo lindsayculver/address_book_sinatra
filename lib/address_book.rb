@@ -22,7 +22,12 @@ class Contact
   define_method(:name) do
     @name
   end
+
   define_method(:email) do
     @email
+  end
+
+  define_method(:address) do
+    @address
   end
 end

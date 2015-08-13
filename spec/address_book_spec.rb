@@ -37,4 +37,12 @@ describe('Contact') do
       expect(test_contact.email()).to(eq('tim@email.com'))
     end
   end
+
+  describe('#address') do
+    it('returns the address when the method is called') do
+      test_contact = Contact.new('Pam', 'pam@email.com', '123 fake st.', '3605555555')
+      test_contact.save()
+      expect(test_contact.address()).to(eq('123 fake st.'))
+    end
+  end
 end
