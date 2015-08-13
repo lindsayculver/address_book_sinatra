@@ -21,4 +21,12 @@ describe('Contact') do
       expect(Contact.clear()).to(eq([]))
     end
   end
+
+  describe('#name') do
+    it('returns a name when the method is called') do
+      test_contact = Contact.new('Sally')
+      test_contact.save()
+      expect(test_contact.name()).to(eq('Sally'))
+    end
+  end
 end
