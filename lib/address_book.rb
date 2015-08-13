@@ -6,4 +6,8 @@ class Contact
   define_singleton_method(:all) do
     @@contacts
   end
+
+  define_method(:save) do
+    @@contacts.push(self)
+  end
 end
